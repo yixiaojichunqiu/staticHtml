@@ -1,0 +1,50 @@
+
+<!DOCTYPE HTML><html lang="en"><head>
+<meta charset="UTF-8">
+</head>
+<script  type="text/javascript">
+function c() {
+  
+    var v1 = parseFloat(document.getElementById("t1").value);
+    var v2 = parseFloat(document.getElementById("t2").value);
+    var b3 = 7;
+    var b4 = 5;
+    var b5 = 1.5;
+    let all = (v1 + v2)/(1-b3/100-b4/100-b5/100);
+    document.getElementById("t3").value = toDecimal(all*b3/100);
+    document.getElementById("t4").value = toDecimal(all*b4/100);
+    document.getElementById("t5").value = toDecimal(all*b5/100);
+    for (var i=1; i<=5; i++){
+      document.getElementById("l"+i).innerText = "占" + toDecimal(document.getElementById("t"+i).value / all * 100) + "%";
+    }
+    document.getElementById("l6").innerText = "总共" + toDecimal(all) + "斤"
+}
+
+function toDecimal(x) { 
+ var f = parseFloat(x); 
+ if (isNaN(f)) { 
+ return; 
+ } 
+ f = Math.round(x*100)/100; 
+ return f; 
+ } 
+</script>  
+</html>
+<body>
+  <div>
+    <span style="font-size:61px;">
+          <script type="text/javascript">
+            var date = new Date();
+            document.write("今天是：" + date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日" + " 星期" + "日一二三四五六".charAt(date.getDay()));
+          </script>
+    </span>
+</div>
+<label style="height:82px;font-size:61px;width: 200px;">玉米</label>  <input id ="t1" type="text" style="height:80px;font-size:61px;width: 200px;"/><label id="l1" style="height:82px;font-size:61px;width: 200px;"></label><br>
+<label style="height:82px;font-size:61px;width: 200px;">豆粕 </label> <input id ="t2" type="text" style="height:80px;font-size:61px;width: 200px;"/><label id="l2" style="height:82px;font-size:61px;width: 200px;"></label><br>
+<label style="height:82px;font-size:61px;width: 200px;">肠胃健</label><input id ="t3" type="text" style="height:80px;font-size:61px;width: 200px;border:none;" readonly="readonly"><label id="l3" style="height:82px;font-size:61px;width: 200px;"></label><br>
+<label style="height:82px;font-size:61px;width: 200px;">预混</label><input id ="t4" type="text" style="height:80px;font-size:61px;width: 200px;border:none;" readonly="readonly"><label id="l4" style="height:82px;font-size:61px;width: 200px;"></label><br>
+<label style="height:82px;font-size:61px;width: 200px;">小苏打</label><input id ="t5" type="text" style="height:80px;font-size:61px;width: 200px;border:none;" readonly="readonly"><label id="l5" style="height:82px;font-size:61px;width: 200px;"></label><br>
+<label id="l6" style="height:82px;font-size:61px;width: 200px;"></label><br>
+<label id="l7"></label><br>
+<button style="height:80px;font-size:61px;width: 500px;" onclick="c()">点击计算结果</button>
+</body></html>
